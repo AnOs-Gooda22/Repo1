@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.querySelector("#canvas")
+        const ctx = canvas.getContext("2d")
+        var drawing = false;
+
+        canvas.addEventListener("mousedown", (e) => {
+            if (e.button === 0) {
+                drawing = true;
+                ctx.beginPath();
+                ctx.moveTo(e.offsetX, e.offsetY);
+            }
+
+        })
+        canvas.addEventListener("mousemove", (e) => {
+            if(drawing){
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            }
+        })
+        canvas.addEventListener("mouseup", ()=>{
+            drawing = false;
+        })
+    </script>
+</body>
+
+</html>

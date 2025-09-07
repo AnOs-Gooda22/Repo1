@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+        const canvas = document.querySelector("#canvas")
+        const ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(200, 200, 100, 0, Math.PI * 2);
+        ctx.fillStyle = "salmon";
+        ctx.fill();
+        ctx.stroke();
+
+        const radial = ctx.createRadialGradient(200, 200, 20, 200, 200, 50);
+        radial.addColorStop(0, "red");
+        radial.addColorStop(0.5, "blue");
+        radial.addColorStop(1, "green");
+
+        ctx.font = "bold 32px Arial";
+    ctx.fillStyle = radial;
+    ctx.textAlign = "center";
+    ctx.fillText("Anas Eid", 200, 200);
+    </script>
+</body>
+
+</html>

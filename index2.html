@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+        const sad = new Image();
+        const smile = new Image();
+        sad.src = "sad.png";
+        smile.src = "smiley.png"
+
+        sad.onload = () => {
+            ctx.drawImage(sad, 0, 0, 100, 100)
+        }
+
+        canvas.addEventListener("mousedown", () => {
+            ctx.drawImage(smile, 0, 0, 130, 100)
+        })
+
+        canvas.addEventListener("mouseup", () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(sad, 0, 0, 100, 100)
+
+        })
+    </script>
+</body>
+
+</html>
